@@ -89,19 +89,34 @@
                     <div class="col-md-4">
                         <div class="todolist not-done">
                          <h1>Story</h1>
-                            <input type="text" class="form-control add-todo" placeholder="add story">
-                                <button id="checkAll" class="btn btn-success">add</button>
-
-                                
-                            
+                            <input type="text" class="form-control add-todo" placeholder="add story"><button id="checkAll" class="btn btn-success">add</button>
+                                <br>
+                                <ul id="" class="list-unstyled">
+                                    <li><h4>Story 1</h3></li>
+                                    <li><p>Task 1</p></li>
+                                    <li><p>Task 2</p></li>
+                                    <li><h4>Story 2</h3></li>  
+                                    <li><p>Task 3</p></li>
+                                    <li><p>Task 4</p></li>
+                                    <li><h4>Story 3</h3></li>
+                                    <li><p>Task 5</p></li>
+                                    <li><p>Task 6</p></li>
+                                    <li><h4>Story 4</h3></li>
+                                    <li><p>Task 7</p></li>
+                                    <li><p>Task 8</p></li>
+                                </ul>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="todolist">
                          <h1>In Progress</h1>
                             <ul id="" class="list-unstyled">
-                                <li>Some Item</li>
-                                            
+                                <li><h4>Story 5</h3></li>
+                                <li><p>Task 10</p></li>
+                                <li><p>Task 12</p></li>
+                                <li><h4>Story 6</h3></li>
+                                <li><p>Task 9</p></li>
+                                <li><p>Task 13</p></li>                   
                             </ul>
                         </div>
                     </div>
@@ -109,8 +124,12 @@
                         <div class="todolist">
                          <h1>Done</h1>
                             <ul id="done-items" class="list-unstyled">
-                                <li>Some item</li>
-                                            
+                                <li>Task 18</li>
+                                <li>Task 14</li>
+                                <li>Task 15</li>
+                                <li><h4>Story 7</h3></li>
+                                <li>Task 16</li>
+                                <li>Task 17</li>               
                             </ul>
                         </div>
                     </div>
@@ -125,7 +144,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Dashboard <small>Statistics Overview</small>
+                            Burndown Chart <small>Overview</small>
                         </h1>
                     </div>
                 </div>
@@ -136,9 +155,6 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Burn Down Chart</h3>
-                            </div>
                             <div class="panel-body">
                                 <div id="morris-area-chart"></div>
                             </div>
