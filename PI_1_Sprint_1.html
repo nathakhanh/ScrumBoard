@@ -18,10 +18,13 @@
     <!-- Custom CSS -->
     <link href="css/4-col-portfolio.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-    <link href="css/drag.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
     <link href="css/plugins/morris.css" rel="stylesheet">
+
+
+    
+
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -34,7 +37,7 @@
 </head>
 
 <body>
-
+    
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -75,6 +78,7 @@
             <div class="col-lg-12">
                 <h1 class="page-header">Peachtree Stars
                     <small>Scrum Board</small>
+
                 </h1>
             </div>
         </div>
@@ -89,54 +93,67 @@
                     <div class="col-md-4">
                         <div class="todolist not-done">
                          <h1>Story</h1>
-                            <input type="text" class="form-control add-todo" placeholder="add story"><button id="checkAll" class="btn btn-success">add</button>
-                                <br>
-                                <ul id="" class="list-unstyled">
-                                    <li><h4>Story 1</h3></li>
-                                    <li><p>Task 1</p></li>
-                                    <li><p>Task 2</p></li>
-                                    <li><h4>Story 2</h3></li>  
-                                    <li><p>Task 3</p></li>
-                                    <li><p>Task 4</p></li>
-                                    <li><h4>Story 3</h3></li>
-                                    <li><p>Task 5</p></li>
-                                    <li><p>Task 6</p></li>
-                                    <li><h4>Story 4</h3></li>
-                                    <li><p>Task 7</p></li>
-                                    <li><p>Task 8</p></li>
-                                </ul>
+                           <div id="boxA"
+                                ondragenter="return dragEnter(event)"
+                                ondrop="return dragDrop(event)"
+                                ondragover="return dragOver(event)">
+                              <div id="drag5" draggable="true"
+                                    ondragstart="return dragStart(event)"
+                                    ondragend="return dragEnd(event)">Task 1</div>
+                              <div id="drag5" draggable="true"
+                                    ondragstart="return dragStart(event)"
+                                    ondragend="return dragEnd(event)">Task 2</div>
+
+                              <div id="drag5" draggable="true"
+                                    ondragstart="return dragStart(event)"
+                                    ondragend="return dragEnd(event)">Task 3</div>
+                                    <div id="drag5" draggable="true"
+                                    ondragstart="return dragStart(event)"
+                                    ondragend="return dragEnd(event)">Task 4</div>
+                                    <div id="drag5" draggable="true"
+                                    ondragstart="return dragStart(event)"
+                                    ondragend="return dragEnd(event)">Task 5</div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="todolist">
                          <h1>In Progress</h1>
-                            <ul id="" class="list-unstyled">
-                                <li><h4>Story 5</h3></li>
-                                <li><p>Task 10</p></li>
-                                <li><p>Task 12</p></li>
-                                <li><h4>Story 6</h3></li>
-                                <li><p>Task 9</p></li>
-                                <li><p>Task 13</p></li>                   
-                            </ul>
+                            <div id="boxB"
+                                ondragenter="return dragEnter(event)"
+                                ondrop="return dragDrop(event)"
+                                ondragover="return dragOver(event)">
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="todolist">
                          <h1>Done</h1>
-                            <ul id="done-items" class="list-unstyled">
-                                <li>Task 18</li>
-                                <li>Task 14</li>
-                                <li>Task 15</li>
-                                <li><h4>Story 7</h3></li>
-                                <li>Task 16</li>
-                                <li>Task 17</li>               
-                            </ul>
+                            <div id="boxC"
+                            ondragenter="return dragEnter(event)"
+                            ondrop="return dragDrop(event)"
+                            ondragover="return dragOver(event)">
+                        </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- /.row -->
+
+        <div class="row">
+                    
+    <script>
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script>
+    try {
+    var pageTracker = _gat._getTracker("UA-1656750-18");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+
+                </div>
   
         <hr>
         <div class="container-fluid">
@@ -149,6 +166,8 @@
                     </div>
                 </div>
                 <!-- /.row -->
+
+                
 
 
 
@@ -171,6 +190,49 @@
                 </div>
             </div>
             <!-- /.row -->
+            <script type="text/javascript">
+function dragStart(ev) {
+    ev.dataTransfer.effectAllowed='move';
+    //ev.dataTransfer.dropEffect='move';
+    ev.dataTransfer.setData("Text", ev.target.getAttribute('id'));
+    ev.dataTransfer.setDragImage(ev.target,0,0);
+    return true;
+}
+
+function dragEnd(ev) {
+    ev.dataTransfer.clearData("Text");
+    return true
+}
+
+
+function dragEnter(ev) {
+    var idelt = ev.dataTransfer.getData("Text");
+    return true;
+}
+
+function dragOver(ev) {
+    var idelt = ev.dataTransfer.getData("Text");
+    var id = ev.target.getAttribute('id');
+    
+    return false;
+    
+    if( (id =='boxB' || id =='boxA') && (idelt == 'drag' || idelt=='drag2'))
+        return false;
+    else if( id =='boxC' && idelt == 'drag3')
+        return false;
+    else
+        return true;
+}
+
+function dragDrop(ev) {
+  console.log('drop');
+    var idelt = ev.dataTransfer.getData("Text");
+    ev.target.appendChild(document.getElementById(idelt));
+    ev.stopPropagation();
+    return false; // return false so the event will not be propagated to the browser
+}
+
+</script>
         </footer>
 
     </div>

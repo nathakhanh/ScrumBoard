@@ -1,2 +1,2 @@
 # ScrumBoard
-Easier project management
+Easier project management /  scrum board
